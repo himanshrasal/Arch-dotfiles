@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Exit if slurp is already running
+if pgrep -x slurp > /dev/null; then
+    echo "Screenshot tool already running."
+    exit 1
+fi
+
+# Run slurp to get selection area
+area=$(slurp)
+if [ -z "$area" ]; then
+    echo "Selection cancelled."
+    exit 1
+fi
+
+# Prepare file path
+path="$HOME/Pictures/Screenshots"
+filename="screenshot-$(date '+%Y-%m-%d_%H-%M-%S').png"
+full_path="$path/$filename"
+
+mkdir -p "$path"
+
+# Take screenshot
+if grim -g "$area" "$full_path"; then
+    wl-copy < "$full_path"
+    notify-send -i "$full_path" "Screenshot saved and copied!" "Pictures/Screenshots/$filename"
+else
+    echo "Screenshot failed."
+    exit 1
+fi
+

@@ -1,0 +1,133 @@
+
+* {
+  font-family: "RobotoMono Nerd Font", "Symbols Nerd Font Mono", "Font Awesome 6 Free", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+window#waybar {
+    background-color: rgba(40, 40, 40, 0);
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+}
+
+#workspaces button {
+    padding: 0px 5px 0px 0px;
+    background-color: transparent;
+	color: inherit;
+}
+
+#workspaces button.focused {
+}
+
+#workspaces button.urgent {
+}
+
+#mode {
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd,
+#window,
+#workspaces{
+    padding: 0 12px;
+    margin: 0 6px;
+	background-color: rgba(30, 30, 30, 0.8);  /* custom */
+    color: rgba(255, 255, 255, 0.8); /* custom */
+	border-radius: 8px;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+	color: rgba(200, 200, 200, 0.6); /*custom*/
+}
+
+/* you can set a style on hover for any module like this */
+#pulseaudio:hover,
+#cpu:hover,
+#memory:hover,
+#clock:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* custom */
+}
+
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+
+#tray {
+    background-color: #2980b9;
+}
+
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+
